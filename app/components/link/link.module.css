@@ -1,0 +1,35 @@
+@layer components {
+  .link {
+    --lineStrokeWidth: 2px;
+    --linkColor: var(--primary);
+    --lineOpacity: 30%;
+    --filledLineGradient: linear-gradient(var(--linkColor), var(--linkColor));
+    --unfilledLineGradient: linear-gradient(
+      color-mix(in lab, var(--linkColor) var(--lineOpacity), transparent),
+      color-mix(in lab, var(--linkColor) var(--lineOpacity), transparent)
+    );
+
+    cursor: pointer;
+    display: inline;
+    color: var(--linkColor);
+    background: var(--filledLineGradient) no-repeat 100% 100% / 0 var(--lineStrokeWidth),
+      var(--unfilledLineGradient) no-repeat 0 100% / 100% var(--lineStrokeWidth);
+    padding-bottom: var(--lineStrokeWidth);
+
+    &:hover,
+    &:focus {
+      background: var(--filledLineGradient) no-repeat 0 100% / 100% var(--lineStrokeWidth),
+        var(--unfilledLineGradient) no-repeat 0 100% / 100% var(--lineStrokeWidth);
+    }
+
+    @media (--mediaUseMotion) {
+      transition-duration: var(--durationM);
+      transition-timing-function: var(--bezierFastoutSlowin);
+      transition-property: background-size;
+    }
+
+    &[data-secondary='true'] {
+      --linkColor: var(--text);
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@layer components {
+  .loader {
+    display: grid;
+    grid-template-columns: 100%;
+    width: var(--width);
+    height: var(--height);
+    background: color-mix(in lab, currentColor 20%, transparent);
+
+    &[data-center='true'] {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .text {
+    color: inherit;
+  }
+
+  @keyframes loaderSpan {
+    0% {
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    50% {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    51% {
+      transform: scaleX(1);
+      transform-origin: right;
+    }
+
+    100% {
+      transform: scaleX(0);
+      transform-origin: right;
+    }
+  }
+
+  .span {
+    grid-area: 1 / 1;
+    background: currentColor;
+    animation: loaderSpan 0.7s var(--bezierFastoutSlowin) infinite;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+}

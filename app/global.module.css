@@ -1,0 +1,82 @@
+@custom-media --mediaDesktop (max-width: 2080px);
+@custom-media --mediaLaptop (max-width: 1680px);
+@custom-media --mediaTablet (max-width: 1040px);
+@custom-media --mediaMobile (max-width: 696px);
+@custom-media --mediaMobileLS (max-height: 696px);
+@custom-media --mediaMobileS (max-width: 400px);
+@custom-media --mediaUseMotion (prefers-reduced-motion: no-preference);
+@custom-media --mediaReduceMotion (prefers-reduced-motion: reduce);
+@custom-media --mediaTouch (pointer: coarse);
+@custom-media --mediaNoTouch (pointer: fine);
+
+@layer base {
+  :global(:root) {
+    --mobileNavOffset: calc(var(--spaceOuter) * 2 + var(--space2XL));
+  }
+
+  :global(html, body) {
+    font-family: var(--fontStack);
+    font-weight: var(--fontWeightRegular);
+    background-color: var(--background);
+    transition: var(--durationM) ease;
+    transition-property: background, opacity;
+    color: var(--textBody);
+    width: 100vw;
+    overflow-x: hidden;
+    opacity: 1;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  :global(:where(code, pre)) {
+    font-family: var(--monoFontStack);
+  }
+
+  :global(::selection) {
+    background: var(--accent);
+    color: var(--black);
+  }
+
+  :global(:focus) {
+    outline: 4px solid var(--text);
+    outline-offset: 4px;
+  }
+
+  :global(:focus:not(:focus-visible)) {
+    outline: none;
+  }
+
+  @keyframes :global(fade-in) {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes :global(reveal) {
+    0% {
+      transform: scale3d(0, 1, 1);
+      transform-origin: left;
+    }
+
+    50% {
+      transform: scale3d(1, 1, 1);
+      transform-origin: left;
+    }
+
+    51% {
+      transform: scale3d(1, 1, 1);
+      transform-origin: right;
+    }
+
+    100% {
+      transform: scale3d(0, 1, 1);
+      transform-origin: right;
+    }
+  }
+}

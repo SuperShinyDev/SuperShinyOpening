@@ -1,0 +1,122 @@
+@layer components {
+  .image {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    display: grid;
+    grid-template-columns: 100%;
+    isolation: isolate;
+
+    &[data-raised='true'] {
+      box-shadow: 0 50px 100px -20px color-mix(in lab, var(--black) 25%, transparent),
+        0 30px 60px -30px color-mix(in lab, var(--black) 30%, transparent);
+    }
+
+    &[data-reveal='true'] {
+      --revealDuration: 1.8s;
+
+      transition: box-shadow var(--durationL) ease calc(var(--revealDuration) / 2);
+
+      &:not([data-visible='true']) {
+        box-shadow: none;
+      }
+
+      &::before {
+        content: '';
+        background-color: var(--accent);
+        position: absolute;
+        inset: 0;
+        transform: scale3d(0, 1, 1);
+        transform-origin: left;
+        will-change: transform;
+        z-index: var(--zIndex2);
+      }
+
+      @media (--mediaUseMotion) {
+        &[data-visible='true']::before:global {
+          animation: reveal var(--revealDuration) var(--bezierFastoutSlowin) var(--delay);
+        }
+      }
+    }
+  }
+
+  .container {
+    position: relative;
+    transform: none;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+
+  .elementWrapper {
+    opacity: 0;
+    transition: none;
+    transform: none;
+    position: relative;
+    display: grid;
+    grid-template-columns: 100%;
+
+    &[data-reveal='true'] {
+      opacity: 0;
+      transition: opacity var(--durationM) ease var(--delay);
+
+      @media (--mediaReduceMotion) {
+        transition-delay: calc(var(--delay) - 1s);
+      }
+    }
+
+    &[data-visible='true'] {
+      opacity: 1;
+    }
+  }
+
+  .placeholder,
+  .element {
+    width: 100%;
+    height: auto;
+    grid-column: 1;
+    grid-row: 1;
+
+    &[data-cover='true'] {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .placeholder {
+    transition: opacity var(--durationM) ease var(--delay);
+    pointer-events: none;
+    position: relative;
+    z-index: var(--zIndex1);
+    opacity: 1;
+
+    &[data-loaded='true'] {
+      opacity: 0;
+    }
+  }
+
+  .element {
+    opacity: 0;
+
+    &[data-loaded='true'] {
+      opacity: 1;
+    }
+  }
+
+  .button {
+    opacity: 0;
+    position: absolute;
+    top: var(--spaceM);
+    left: var(--spaceM);
+    height: 32px;
+    color: var(--white);
+    padding: 0 8px 0 2px;
+
+    &::after {
+      background-color: color-mix(in lab, var(--black) 80%, transparent);
+    }
+
+    .elementWrapper:hover &,
+    &:focus {
+      opacity: 1;
+    }
+  }
+}

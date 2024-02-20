@@ -1,0 +1,36 @@
+__  __  __
+\ \ \ \ \/
+ \ \/\ \
+  \/  \/
+
+The humans.txt file explains the team, technology,
+and graphic assets behind this site humanstxt.org.
+
+_______________________________________________________________________________
+
+DESIGNER
+
+Hirose Ibuki, Hamish Williams
+Hand crafted design & web development
+
+Design tools:
+Figma
+Photoshop
+Blender
+
+_______________________________________________________________________________
+
+TECHNOLOGY
+
+React
+Remix
+Three.js
+Framer Motion
+
+_______________________________________________________________________________
+
+FONTS
+
+Gotham
+IPA Gothic Regular
+Hiragino Kaku Gothic W8
