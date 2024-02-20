@@ -19,6 +19,7 @@
   "dependencies": {
     "@aws-sdk/client-ses": "^3.511.0",
     "@mdx-js/react": "^3.0.0",
+    "@netlify/plugin-nextjs": "^4.41.3",
     "@remix-run/cloudflare": "^2.6.0",
     "@remix-run/cloudflare-pages": "^2.6.0",
     "@remix-run/css-bundle": "^2.6.0",
