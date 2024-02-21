@@ -84,7 +84,7 @@ export const meta = () => {
   return baseMeta({ title, description, prefix: 'Projects' });
 };
 
-export const SmartSparrow = () => {
+export const Casino = () => {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === 'dark';
   const themes = ['dark', 'light'];

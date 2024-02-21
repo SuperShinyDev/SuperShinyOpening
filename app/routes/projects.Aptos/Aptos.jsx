@@ -49,7 +49,7 @@ export const meta = () => {
   return baseMeta({ title, description, prefix: 'Projects' });
 };
 
-export const Slice = () => {
+export const Aptos = () => {
   return (
     <Fragment>
       <ProjectContainer className={styles.slice}>

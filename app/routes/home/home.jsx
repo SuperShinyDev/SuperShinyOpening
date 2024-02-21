@@ -106,7 +106,7 @@ export const Home = () => {
         title="Blockchain Casino Games"
         description="I am responsible for developing and implementing secure and transparent casino games using blockchain technology."
         buttonText="View project"
-        buttonLink="/projects/smart-sparrow"
+        buttonLink="/projects/casino"
         model={{
           type: 'laptop',
           alt: 'Smart Sparrow lesson builder',
@@ -151,10 +151,10 @@ export const Home = () => {
         title="Aptos NFT minting project"
         description="Develop an NFT minting platform on Aptos blockchain that allows users to create, mint, and trade digital collectibles, ensuring authenticity and ownership through blockchain technology."
         buttonText="View project"
-        buttonLink="/projects/slice"
+        buttonLink="/projects/aptos"
         model={{
           type: 'laptop',
-          alt: 'Annotating a biomedical image in the Slice app',
+          alt: 'Aptos NFT minting project',
           textures: [
             {
               srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
