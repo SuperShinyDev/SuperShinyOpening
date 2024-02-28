@@ -16,6 +16,16 @@ const isStorybook = process.argv[1]?.includes('storybook');
 export default defineConfig({
   assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
   build: {
+    rollupOptions: {
+      output:{
+        manualChunks(id){
+          if(id.includes('node_modules')){
+            return 'vendors'
+          }
+        }
+      }
+    },
+    chunkSizeWarningLimit:1000,
     assetsInlineLimit: 1024,
   },
   server: {
