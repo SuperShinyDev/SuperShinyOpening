@@ -1,9 +1,9 @@
 {
-  "name": "portfolio",
-  "homepage": "https://hamishw.com",
-  "description": "Portfolio site for Hamish Williams",
-  "repository": "https://github.com/HamishMW/portfolio.git",
-  "author": "Hamish Williams",
+  "name": "supershinyopening",
+  "homepage": "https://supershinydev.com",
+  "description": "Portfolio site for Supershinydev",
+  "repository": "https://github.com/SuperShinyDev/supershinyopening.git",
+  "author": "SuperShinyDev",
   "sideEffects": false,
   "type": "module",
   "scripts": {
@@ -11,7 +11,7 @@
     "dev": "node ./scripts/dev.cjs && remix vite:dev",
     "start": "wrangler pages dev ./build/client",
     "postinstall": "node ./scripts/draco.cjs",
-    "deploy": "npm run build && wrangler pages deploy ./build/client --project-name portfolio",
+    "deploy": "npm run build && wrangler pages deploy ./build/client --project-name supershinyopening",
     "dev:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
     "deploy:storybook": "wrangler pages deploy ./storybook-static --project-name portfolio-storybook --branch main"
@@ -34,6 +34,7 @@
     "three-stdlib": "^2.29.4"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240222.0",
     "@csstools/postcss-global-data": "^2.1.1",
     "@mapbox/rehype-prism": "^0.9.0",
     "@mdx-js/rollup": "^3.0.0",
@@ -60,8 +61,10 @@
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^4.0.0",
     "storybook": "^7.6.16",
+    "typescript": "^5.3.3",
     "vite": "^5.0.12",
     "vite-jsconfig-paths": "^2.0.1",
+    "vitest": "^1.3.1",
     "wrangler": "3.24.0"
   },
   "engines": {
